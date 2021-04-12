@@ -6,7 +6,6 @@ const ingredients = [
   "Зелень",
   "Приправы",
 ];
-console.log(ingredients);
 
 const makeList = array => {
     array.forEach(item => {
