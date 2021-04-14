@@ -15,21 +15,17 @@ const images = [
     alt: "Group of Horses Running",
   },
 ];
-console.log(images);
-
-const makeGallry = arrey => {
-    arrey.forEach(image => {
-        const imagesListRef = document
-            .querySelector('#gallery')
-            .insertAdjacentHTML("afterbegin",
-            `<li class='gallery__item'>
-                <img
-                class='gallery__img'
-                src=${image.url}
-                alt=${image.alt}>
-                </img>
-            </li>`);
-
-    });
+const makeGallery = ({url, alt}) => {    
+  return`
+    <li class="gallery__item">
+      <img
+        class="gallery__img"
+        src="${url}"
+        alt="${alt}">          
+    </li>`;    
 };
-makeGallry(images)
+const makeListGallery = images.map(makeGallery).join(' ');
+
+document
+  .querySelector('#gallery')
+  .insertAdjacentHTML("beforeend", makeListGallery);
